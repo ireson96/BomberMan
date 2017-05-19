@@ -33,6 +33,7 @@
    layerSortMode29 = "Normal";
    layerSortMode30 = "Normal";
    layerSortMode31 = "Normal";
+   DebugRendering = "0";
       cameraPosition = "0 0";
       cameraSize = "100 75";
 };
