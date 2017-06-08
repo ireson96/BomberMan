@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 1420212242 source:f:\funcode\games\bomberman\sourcecode\icon.rc
 
-1415711192 source:f:\funcode\games\bomberman\sourcecode\src\lessonx.cpp
+1496914268 source:f:\funcode\games\bomberman\sourcecode\src\lessonx.cpp
 	<Stdio.h>
 	"CommonClass.h"
 	"LessonX.h"
@@ -9,10 +9,19 @@
 1422461346 f:\funcode\games\bomberman\sourcecode\header\commonclass.h
 	<windows.h>
 
-1496907262 f:\funcode\games\bomberman\sourcecode\header\lessonx.h
+1496913272 f:\funcode\games\bomberman\sourcecode\header\lessonx.h
 	<Windows.h>
+	"Player.h"
+	<bits/stdc++.h>
 
-1496907309 source:f:\funcode\games\bomberman\sourcecode\src\main.cpp
+1496913234 source:f:\funcode\games\bomberman\sourcecode\src\main.cpp
 	"CommonClass.h"
 	"LessonX.h"
+
+1496916369 f:\funcode\games\bomberman\sourcecode\header\player.h
+	<CommonClass.h>
+	<iostream>
+
+1496912937 source:f:\funcode\games\bomberman\sourcecode\src\player.cpp
+	"Player.h"
 

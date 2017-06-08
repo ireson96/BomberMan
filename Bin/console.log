@@ -1,7 +1,7 @@
-//-------------------------- 6/8/2017 -- 15:39:20 -----
+//-------------------------- 6/8/2017 -- 18:06:18 -----
 Processor Init:
-   Intel Pentium III, ~2.80 Ghz
-     (timed at roughly 2.81 Ghz)
+   Intel Pentium III, ~2.85 Ghz
+     (timed at roughly 2.83 Ghz)
    FPU detected
    MMX detected
    SSE detected
@@ -123,6 +123,7 @@ Activating DirectInput...
 DirectInput joystick failed to enable!
 Compiling F:/FunCode/Games/BomberMan/Bin/game/data/levels/level.t2d...
 Loading compiled script F:/FunCode/Games/BomberMan/Bin/game/data/levels/level.t2d.
+t2dSceneGraph::addToScene() - Object '1335' is already in a SceneGraph!.
 DirectInput deactivated.
 Shutting down the OpenGL display device...
 Making the GL rendering context not current...

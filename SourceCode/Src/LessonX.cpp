@@ -7,6 +7,8 @@
 #include <Stdio.h>
 #include "CommonClass.h"
 #include "LessonX.h"
+
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 //
@@ -80,6 +82,11 @@ void CGameMain::GameInit()
 {
     ///开局设置按任意键开始隐藏
     m_pStart->SetSpriteVisible(false);
+
+    playerOne = new CPlayer("playerone");
+    playerOne->CloneSprite("boy");
+    playerOne->SetAnimationName("PlayerPic04Animation");
+    playerOne->Init();
 }
 //=============================================================================
 //
@@ -102,4 +109,21 @@ void CGameMain::OnKeyDown( const int iKey, const bool bAltPress, const bool bShi
         m_iGameState = 1;
     }
 
+    if(2 == GetGameState()){
+        playerOne->OnMove(iKey,true);
+    }
+
 }
+
+void CGameMain::OnSpriteColWorldLimit( const char *szName, const int iColSide )
+{
+    if(strstr(szName,"playerone") != NULL)
+	{
+			playerOne->SetSpriteLinearVelocity(0,0);
+	}
+	/*if(strstr(szName,"playertwo") != NULL)
+	{
+			playerTwo->SetSpriteLinearVelocity(0,0);
+	}*/
+}
+
