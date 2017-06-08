@@ -19,7 +19,7 @@ int PASCAL WinMain(HINSTANCE hInstance,
 		return 0;
 
 	// To do : 在此使用API更改窗口标题
-	CSystem::SetWindowTitle("LessonX");
+	CSystem::SetWindowTitle("炸弹堂 ---新区刚开一秒！开局一颗炸弹，三秒成土豪！");
 
 	// 引擎主循环，处理屏幕图像刷新等工作
 	while( CSystem::EngineMainLoop() )
@@ -67,7 +67,8 @@ void CSystem::OnMouseUp( const int iMouseType, const float fMouseX, const float 
 void CSystem::OnKeyDown( const int iKey, const bool bAltPress, const bool bShiftPress, const bool bCtrlPress )
 {
 	// 可以在此添加游戏需要的响应函数
-	
+	g_GameMain.OnKeyDown(iKey, bAltPress, bShiftPress, bCtrlPress);
+
 }
 //==========================================================================
 //
@@ -91,6 +92,6 @@ void CSystem::OnSpriteColSprite( const char *szSrcName, const char *szTarName )
 // iColSide : 0 左边，1 右边，2 上边，3 下边
 void CSystem::OnSpriteColWorldLimit( const char *szName, const int iColSide )
 {
-	
+
 }
 

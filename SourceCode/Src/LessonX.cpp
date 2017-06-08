@@ -10,7 +10,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //
-CGameMain		g_GameMain;	
+CGameMain		g_GameMain;
 
 //==============================================================================
 //
@@ -22,18 +22,22 @@ CGameMain		g_GameMain;
 CGameMain::CGameMain()
 {
 	m_iGameState			=	0;
+	///初始化精灵
+	m_pStart	= new CSprite("start");
 }
 //==============================================================================
 //
 // 析构函数
 CGameMain::~CGameMain()
 {
+    ///销毁所有创建的精灵
+    delete m_pStart;
 }
 
 //==============================================================================
 //
 // 游戏主循环，此函数将被不停的调用，引擎每刷新一次屏幕，此函数即被调用一次
-// 用以处理游戏的开始、进行中、结束等各种状态. 
+// 用以处理游戏的开始、进行中、结束等各种状态.
 // 函数参数fDeltaTime : 上次调用本函数到此次调用本函数的时间间隔，单位：秒
 void CGameMain::GameMainLoop( float	fDeltaTime )
 {
@@ -56,7 +60,7 @@ void CGameMain::GameMainLoop( float	fDeltaTime )
 				GameRun( fDeltaTime );
 			}
 			else // 游戏结束。调用游戏结算函数，并把游戏状态修改为结束状态
-			{				
+			{
 				SetGameState(0);
 				GameEnd();
 			}
@@ -74,6 +78,8 @@ void CGameMain::GameMainLoop( float	fDeltaTime )
 // 每局开始前进行初始化，清空上一局相关数据
 void CGameMain::GameInit()
 {
+    ///开局设置按任意键开始隐藏
+    m_pStart->SetSpriteVisible(false);
 }
 //=============================================================================
 //
@@ -86,4 +92,14 @@ void CGameMain::GameRun( float fDeltaTime )
 // 本局游戏结束
 void CGameMain::GameEnd()
 {
+}
+
+
+///当有按键按下时
+void CGameMain::OnKeyDown( const int iKey, const bool bAltPress, const bool bShiftPress, const bool bCtrlPress )
+{
+    if(0 == GetGameState()){
+        m_iGameState = 1;
+    }
+
 }
