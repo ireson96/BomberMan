@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "Bomb.h"
+#include "LessonX.h"
 
 CPlayer::CPlayer(const char *szName):CAnimateSprite(szName)
 {
@@ -33,7 +35,7 @@ void CPlayer::Init()
 {
     SetSpritePosition(0.f,0.f);
 	SetSpriteWorldLimit(WORLD_LIMIT_NULL, -26, -22, 26, 22);
-	SetSpriteCollisionActive(1,1);//设置为可以接受和发生碰撞
+	SetSpriteCollisionActive(true,true);//设置为可以接受和发生碰撞
 	SetSpriteVisible(true);
 }
 
@@ -61,6 +63,12 @@ void CPlayer::OnAction(int iKey, bool bPress)
         }else if(iKey == spriteLEFT){
             AnimateSpritePlayAnimation(spriteAnimation[1].data(),false);
             SetSpriteLinearVelocity(-speed,0);
+        }else if(iKey == spriteSetBomb){
+            char *szName = CSystem::MakeSpriteName("bomb",g_GameMain.GetBombNum());
+            CBomb *temBomb = new CBomb(szName,GetBombPower(),this);
+            temBomb->CloneSprite("Bomb");
+            temBomb->Init();
+            g_GameMain.AddBomb(temBomb);
         }
     }
     else{

@@ -9,6 +9,8 @@
 //
 #include <Windows.h>
 #include "Player.h"
+#include "Bomb.h"
+#include "BombFire.h"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,6 +25,9 @@ private:
 	CSprite     *m_pStart;   //开始精灵
 	CPlayer     *playerOne;
 	CPlayer     *playerTwo;
+	vector<CBomb*> bombVector;
+	vector<CBombFire*> bombFireVector;
+	int bombNum,bombFireNum;
 
 public:
 	CGameMain();            //构造函数
@@ -30,6 +35,10 @@ public:
 
 	// Get方法
 	int				GetGameState()											{ return m_iGameState; }
+	///Get 炸弹数量
+	int             GetBombNum()        {return bombNum;}
+	///Get 炸弹粒子效果数量
+	int             GetBombFireNum()    {return bombFireNum;}
 
 	// Set方法
 	void			SetGameState( const int iState )				{ m_iGameState	=	iState; }
@@ -44,6 +53,14 @@ public:
 	void OnKeyDown( const int iKey, const bool bAltPress, const bool bShiftPress, const bool bCtrlPress );
 	void OnKeyUp( const int iKey );
 	void OnSpriteColWorldLimit( const char *szName, const int iColSide );
+	void OnSpriteColSprite( const char *szSrcName, const char *szTarName );
+
+	///将炸弹加入容器
+	void AddBomb(CBomb *tempBomb);
+	///将炸弹粒子效果加入容器
+	void AddBombFire(CBombFire *tempBombFire);
+	///根据名字寻找炸弹
+	CBomb* FindBombForName(const char *bombName);
 
 
 };

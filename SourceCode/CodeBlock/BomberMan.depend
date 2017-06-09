@@ -27,7 +27,7 @@
 
 1495032334 source:f:\github_project\bomberman\sourcecode\icon.rc
 
-1496984278 source:f:\github_project\bomberman\sourcecode\src\lessonx.cpp
+1497007798 source:f:\github_project\bomberman\sourcecode\src\lessonx.cpp
 	<Stdio.h>
 	"CommonClass.h"
 	"LessonX.h"
@@ -35,19 +35,38 @@
 1495032334 f:\github_project\bomberman\sourcecode\header\commonclass.h
 	<windows.h>
 
-1496984278 f:\github_project\bomberman\sourcecode\header\lessonx.h
+1497002873 f:\github_project\bomberman\sourcecode\header\lessonx.h
 	<Windows.h>
 	"Player.h"
+	"Bomb.h"
+	"BombFire.h"
 	<bits/stdc++.h>
 
-1496983328 f:\github_project\bomberman\sourcecode\header\player.h
+1497002785 f:\github_project\bomberman\sourcecode\header\player.h
 	<CommonClass.h>
 	<iostream>
 
-1496984646 source:f:\github_project\bomberman\sourcecode\src\main.cpp
+1496999077 source:f:\github_project\bomberman\sourcecode\src\main.cpp
 	"CommonClass.h"
 	"LessonX.h"
 
-1496984713 source:f:\github_project\bomberman\sourcecode\src\player.cpp
+1497007649 source:f:\github_project\bomberman\sourcecode\src\player.cpp
 	"Player.h"
+	"Bomb.h"
+	"LessonX.h"
+
+1497008894 source:f:\github_project\bomberman\sourcecode\src\bomb.cpp
+	"Bomb.h"
+	"LessonX.h"
+
+1496999746 f:\github_project\bomberman\sourcecode\header\bomb.h
+	<CommonClass.h>
+	"Player.h"
+
+1497006925 f:\github_project\bomberman\sourcecode\header\bombfire.h
+	<CommonClass.h>
+
+1497009070 source:f:\github_project\bomberman\sourcecode\src\bombfire.cpp
+	"BombFire.h"
+	"LessonX.h"
 
