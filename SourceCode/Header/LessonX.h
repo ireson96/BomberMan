@@ -22,6 +22,7 @@ private:
 	///定义全局精灵
 	CSprite     *m_pStart;   //开始精灵
 	CPlayer     *playerOne;
+	CPlayer     *playerTwo;
 
 public:
 	CGameMain();            //构造函数
@@ -41,6 +42,7 @@ public:
 
 	///Main函数运行时调用
 	void OnKeyDown( const int iKey, const bool bAltPress, const bool bShiftPress, const bool bCtrlPress );
+	void OnKeyUp( const int iKey );
 	void OnSpriteColWorldLimit( const char *szName, const int iColSide );
 
 

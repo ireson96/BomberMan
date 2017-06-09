@@ -12,7 +12,7 @@ CPlayer::CPlayer(const char *szName):CAnimateSprite(szName)
     isPushBomb = false;
 }
 
-CPlayer::CPlayer(const char *szName,KeyCodes up, KeyCodes down, KeyCodes right, KeyCodes left):CAnimateSprite(szName),spriteUP(up),spriteDOWN(down),spriteLEFT(left),spriteRIGHT(right)
+CPlayer::CPlayer(const char *szName,KeyCodes up, KeyCodes down, KeyCodes right, KeyCodes left, KeyCodes setBom):CAnimateSprite(szName),spriteUP(up),spriteDOWN(down),spriteLEFT(left),spriteRIGHT(right),spriteSetBomb(setBom)
 {
     //ctor
     playerHP = 1;
@@ -46,25 +46,32 @@ void CPlayer::SetAnimationName(string name)
     spriteAnimation[3] = name+string("4");//w
 }
 
-void CPlayer::OnMove(int iKey, bool bPress)
+void CPlayer::OnAction(int iKey, bool bPress)
 {
 	if(bPress){
         if(iKey == spriteUP){
             AnimateSpritePlayAnimation(spriteAnimation[3].data(),false);
             SetSpriteLinearVelocity(0,-speed);
-            cout<<"w"<<endl;
         }else if(iKey == spriteRIGHT){
             AnimateSpritePlayAnimation(spriteAnimation[2].data(),false);
             SetSpriteLinearVelocity(speed,0);
-            cout<<"d"<<endl;
         }else if(iKey == spriteDOWN){
             AnimateSpritePlayAnimation(spriteAnimation[0].data(),false);
             SetSpriteLinearVelocity(0,speed);
-            cout<<"s"<<endl;
         }else if(iKey == spriteLEFT){
             AnimateSpritePlayAnimation(spriteAnimation[1].data(),false);
             SetSpriteLinearVelocity(-speed,0);
-            cout<<"a"<<endl;
+        }
+    }
+    else{
+        if(iKey == spriteUP && GetSpriteLinearVelocityY()<0){
+            SetSpriteLinearVelocityY(0);
+        }else if(iKey == spriteRIGHT && GetSpriteLinearVelocityX()>0){
+            SetSpriteLinearVelocityX(0);
+        }else if(iKey == spriteDOWN && GetSpriteLinearVelocityY()>0){
+            SetSpriteLinearVelocityY(0);
+        }else if(iKey == spriteLEFT && GetSpriteLinearVelocityX()<0){
+            SetSpriteLinearVelocityX(0);
         }
     }
 }

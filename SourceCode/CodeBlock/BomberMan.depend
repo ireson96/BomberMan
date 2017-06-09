@@ -25,3 +25,29 @@
 1496912937 source:f:\funcode\games\bomberman\sourcecode\src\player.cpp
 	"Player.h"
 
+1495032334 source:f:\github_project\bomberman\sourcecode\icon.rc
+
+1496984278 source:f:\github_project\bomberman\sourcecode\src\lessonx.cpp
+	<Stdio.h>
+	"CommonClass.h"
+	"LessonX.h"
+
+1495032334 f:\github_project\bomberman\sourcecode\header\commonclass.h
+	<windows.h>
+
+1496984278 f:\github_project\bomberman\sourcecode\header\lessonx.h
+	<Windows.h>
+	"Player.h"
+	<bits/stdc++.h>
+
+1496983328 f:\github_project\bomberman\sourcecode\header\player.h
+	<CommonClass.h>
+	<iostream>
+
+1496984646 source:f:\github_project\bomberman\sourcecode\src\main.cpp
+	"CommonClass.h"
+	"LessonX.h"
+
+1496984713 source:f:\github_project\bomberman\sourcecode\src\player.cpp
+	"Player.h"
+

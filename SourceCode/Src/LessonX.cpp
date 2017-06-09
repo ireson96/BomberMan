@@ -87,6 +87,10 @@ void CGameMain::GameInit()
     playerOne->CloneSprite("boy");
     playerOne->SetAnimationName("PlayerPic04Animation");
     playerOne->Init();
+    playerTwo = new CPlayer("playertwo",KEY_UP,KEY_DOWN,KEY_RIGHT,KEY_LEFT,KEY_ENTER);
+    playerTwo->CloneSprite("girl");
+    playerTwo->SetAnimationName("PlayerPic03Animation");
+    playerTwo->Init();
 }
 //=============================================================================
 //
@@ -110,20 +114,37 @@ void CGameMain::OnKeyDown( const int iKey, const bool bAltPress, const bool bShi
     }
 
     if(2 == GetGameState()){
-        playerOne->OnMove(iKey,true);
+        playerOne->OnAction(iKey,true);
+        playerTwo->OnAction(iKey,true);
     }
 
 }
 
+void CGameMain::OnKeyUp( const int iKey )
+{
+    if(2 == GetGameState()){
+        playerOne->OnAction(iKey,false);
+        playerTwo->OnAction(iKey,false);
+    }
+}
+
 void CGameMain::OnSpriteColWorldLimit( const char *szName, const int iColSide )
 {
-    if(strstr(szName,"playerone") != NULL)
+    if(strstr(szName,"playerone") != NULL )
 	{
-			playerOne->SetSpriteLinearVelocity(0,0);
+	    if(iColSide == 0 || iColSide == 1){
+            playerOne->SetSpriteLinearVelocityX(0);
+	    }else{
+            playerOne->SetSpriteLinearVelocityY(0);
+	    }
 	}
-	/*if(strstr(szName,"playertwo") != NULL)
+	if(strstr(szName,"playertwo") != NULL)
 	{
-			playerTwo->SetSpriteLinearVelocity(0,0);
-	}*/
+        if(iColSide == 0 || iColSide == 1){
+            playerTwo->SetSpriteLinearVelocityX(0);
+	    }else{
+            playerTwo->SetSpriteLinearVelocityY(0);
+	    }
+	}
 }
 

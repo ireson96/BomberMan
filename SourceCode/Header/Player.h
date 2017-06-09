@@ -10,20 +10,20 @@ class CPlayer : public CAnimateSprite
 {
     public:
         CPlayer(const char *szName);
-        CPlayer(const char *szName,KeyCodes up, KeyCodes down, KeyCodes right, KeyCodes left);
+        CPlayer(const char *szName,KeyCodes up, KeyCodes down, KeyCodes right, KeyCodes left, KeyCodes setBom);
         virtual ~CPlayer();
 
         //void PushBomb();
         void Init();
         void KeyInit(KeyCodes up, KeyCodes down, KeyCodes right, KeyCodes left);
-        void OnMove(int iKey, bool bPress);///控制人物移动
+        void OnAction(int iKey, bool bPress);///控制人物移动
         void SetAnimationName(string name);
     protected:
     private:
         int playerHP,bombNum,bombPower,dir;
         double speed,speedX,speedY;
         bool isPushBomb;
-        KeyCodes spriteUP = KEY_W,spriteDOWN = KEY_S,spriteRIGHT = KEY_D,spriteLEFT = KEY_A;//创建枚举类型方便更改键位
+        KeyCodes spriteUP = KEY_W,spriteDOWN = KEY_S,spriteRIGHT = KEY_D,spriteLEFT = KEY_A,spriteSetBomb = KEY_SPACE;//创建枚举类型方便更改键位
         string spriteAnimation[4];
 };
 
